@@ -36,7 +36,7 @@ class Mastermind
     @player_guess.each_with_index do |digit, i|
       if digit == @computer_code[i]
         n_correct += 1 
-        @@reduced_computer_code[i] = 0
+        @@reduced_computer_code[i] = -1
       end
     end
     return n_correct
@@ -45,7 +45,7 @@ class Mastermind
   def correct_c_only # only digit is correct, not position
     n_correct = 0
     @player_guess.each_with_index do |digit, i|
-      if @@reduced_computer_code[i] != 0 && @@reduced_computer_code.any?(digit)
+      if @@reduced_computer_code[i] != -1 && @@reduced_computer_code.any?(digit)
         n_correct += 1
         @@reduced_computer_code[@@reduced_computer_code.find_index(digit)] = 0
       end
@@ -79,7 +79,6 @@ game.intro_screen
 
 while game.start
   game.computer_code = game.get_random_code
-  p game.computer_code
   guesses_remaining = 12
 
   (0..11).each do
