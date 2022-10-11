@@ -11,7 +11,7 @@ class Mastermind
   def initialize 
     @computer_code = get_random_code
     @player_guess
-    @@reduced_computer_code = @computer_code
+    @@reduced_computer_code = @computer_code.clone
   end
 
   def get_random_code
@@ -49,7 +49,7 @@ class Mastermind
 
   def get_guess_response # return the [num correct colors in correct position, num correct colors in wrong position]
     response = [correct_c_and_p, correct_c_only]
-    @@reduced_computer_code = @computer_code
+    @@reduced_computer_code = @computer_code.clone
     return response
   end
   
@@ -57,7 +57,19 @@ end
 
 game = Mastermind.new
 p game.computer_code
-p game.get_player_guess
-p game.get_guess_response
+puts "6 possible colors: g, b, y, r, p, o"
+
+
+(0..11).each do
+  p game.get_player_guess
+  guess_response = game.get_guess_response
+  p guess_response
+
+  if guess_response[0] == 4
+    puts "you win!"
+    break
+  end
+
+end
 
 
