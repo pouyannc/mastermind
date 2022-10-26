@@ -6,4 +6,3 @@ More info: https://en.wikipedia.org/wiki/Mastermind_(board_game)
 
 This version is played with digits 1-6 instead of colors, and must be run on the command line.
 Play on repl.it: https://replit.com/@PouyanChamanian/mastermind?v=1  
-[![Run on Repl.it](https://replit.com/badge/github/pouyannc/mastermind)](https://replit.com/new/github/pouyannc/mastermind)
